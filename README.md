@@ -36,8 +36,8 @@ It helps users find potential matches between their DNA sequences and known gene
 git clone https://github.com/denisavdicc/dna-gene-scanner.git
 cd dna-gene-scanner
  
-# 2. Create a virtual environment
-python3 -m venv .venv
+# 2. Create a virtual environment (use Python 3.12)
+python3.12 -m venv .venv
  
 # 3. Activate it
 source .venv/bin/activate
@@ -46,16 +46,17 @@ source .venv/bin/activate
 pip install -r requirements.txt
  
 # 5. Run the app
-python3 project.py
+python3.12 project.py
 ```
  
-**If the GUI window opens with missing or invisible elements:** this is a known bug in the outdated Tcl/Tk version bundled with Apple's system Python, not an issue with the app itself. Fix it by installing a modern Python with proper Tk support via [Homebrew](https://brew.sh):
+If Python 3.12 isn't installed:
 ```bash
-brew install python-tk@3.12 python@3.12
-python3.12 -m venv .venv
-source .venv/bin/activate
-pip install -r requirements.txt
-python3.12 project.py
+brew install python@3.12
+```
+ 
+**If the GUI window opens with missing or invisible elements:** this is a known bug in the outdated Tcl/Tk version bundled with Apple's system Python, not an issue with the app itself. Fix it by installing proper Tk support via [Homebrew](https://brew.sh):
+```bash
+brew install python-tk@3.12
 ```
  
 ### Windows
