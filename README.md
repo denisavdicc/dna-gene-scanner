@@ -1,9 +1,9 @@
 # DNA Gene Scanner
-
+ 
 ## Description
 The DNA Gene Scanner is a Python application designed to compare a user-provided DNA sequence against a reference database of genes stored locally in `genes.txt`. The program utilizes a graphical interface built with Tkinter and employs fuzzy string matching to identify sequences that meet or exceed a specified similarity threshold.
 It helps users find potential matches between their DNA sequences and known genes, showing a similarity score for each match. This tool is intended for educational and research purposes in computational biology and bioinformatics.
-
+ 
 ## Features
 - Graphical User Interface using Tkinter
 - Input field for DNA sequences
@@ -20,31 +20,37 @@ It helps users find potential matches between their DNA sequences and known gene
     - `find_matches()` – Compares user-provided sequences against stored genes
     - `display_results()` – Formats the results for display
     - `scan_sequence()` – Handles getting the sequence from the user, finding matches and showing the results
-
 - **test_project.py** – Contains unit tests for:
     - `read_genes_from_file()`
     - `find_matches()`
     - `display_results()`
-
 - **genes.txt** – Database file containing gene names and sequences
-
-- **requirements.txt** - Lists Python dependencies
+- **requirements.txt** – Lists Python dependencies (just `pytest`, used for running the test suite; `tkinter` and `difflib` are part of Python's standard library and don't need to be installed separately)
 
 ## Installation
 Clone the repository, navigate into the project folder, install dependencies, run the application:
-
+ 
 ```bash
 git clone https://github.com/denisavdicc/dna-gene-scanner.git
 cd dna-gene-scanner
 pip install -r requirements.txt
-python project.py
+python3 project.py
 ```
+ 
+### A note for macOS users
+If you're using the system Python (`/usr/bin/python3`), the GUI window may open with missing or invisible elements — this is a known bug in the outdated Tcl/Tk version Apple bundles with system Python, not an issue with the application itself. If you see this, install a modern Python and its matching Tk support instead:
+```bash
+brew install python-tk@3.12 python@3.12
+python3.12 project.py
+```
+ 
 ## Testing
 Run automated tests to verify functionality:
-
+ 
 ```bash
 pytest test_project.py
 ```
+ 
 ## Usage
 1. Enter a DNA sequence in the input box
 2. Click **Scan Sequence**
