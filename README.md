@@ -12,7 +12,6 @@ It helps users find potential matches between their DNA sequences and known gene
 - Adjustable match threshold (default 85%)
 - Displays all matching genes with similarity percentages or a message indicating no matches found
 - Error handling for missing input or failure to read the gene file
-
 ## File Structure
 - **project.py** – Contains the main application and the following functions:
     - `main()` – Initializes the GUI and manages the application lifecycle
@@ -25,28 +24,64 @@ It helps users find potential matches between their DNA sequences and known gene
     - `find_matches()`
     - `display_results()`
 - **genes.txt** – Database file containing gene names and sequences
-- **requirements.txt** – Lists Python dependencies (just `pytest`, used for running the test suite; `tkinter` and `difflib` are part of Python's standard library and don't need to be installed separately)
-
-## Installation
-Clone the repository, navigate into the project folder, install dependencies, run the application:
+- **requirements.txt** – Lists Python dependencies (`pytest`, used for running the test suite; `tkinter` and `difflib` are part of Python's standard library and don't need to be installed separately)
+## Setup and Installation
+ 
+**Important:** always run the commands below from inside the project folder (the one containing `project.py`). The app looks for `genes.txt` in your current folder, so running it from anywhere else will cause a "file not found" error.
+ 
+### macOS
  
 ```bash
+# 1. Clone the repository
 git clone https://github.com/denisavdicc/dna-gene-scanner.git
 cd dna-gene-scanner
+ 
+# 2. Create a virtual environment
+python3 -m venv .venv
+ 
+# 3. Activate it
+source .venv/bin/activate
+ 
+# 4. Install dependencies
 pip install -r requirements.txt
+ 
+# 5. Run the app
 python3 project.py
 ```
  
-### A note for macOS users
-If you're using the system Python (`/usr/bin/python3`), the GUI window may open with missing or invisible elements — this is a known bug in the outdated Tcl/Tk version Apple bundles with system Python, not an issue with the application itself. If you see this, install a modern Python and its matching Tk support instead:
+**If the GUI window opens with missing or invisible elements:** this is a known bug in the outdated Tcl/Tk version bundled with Apple's system Python, not an issue with the app itself. Fix it by installing a modern Python with proper Tk support via [Homebrew](https://brew.sh):
 ```bash
 brew install python-tk@3.12 python@3.12
+python3.12 -m venv .venv
+source .venv/bin/activate
+pip install -r requirements.txt
 python3.12 project.py
 ```
  
-## Testing
-Run automated tests to verify functionality:
+### Windows
  
+```bash
+# 1. Clone the repository
+git clone https://github.com/denisavdicc/dna-gene-scanner.git
+cd dna-gene-scanner
+ 
+# 2. Create a virtual environment
+python -m venv .venv
+ 
+# 3. Activate it
+.venv\Scripts\activate
+ 
+# 4. Install dependencies
+pip install -r requirements.txt
+ 
+# 5. Run the app
+python project.py
+```
+ 
+If `python` isn't recognized, try `py` instead (`py -m venv .venv`, then `py project.py`) — this depends on how Python was installed on your machine.
+ 
+## Testing
+With the virtual environment activated, run:
 ```bash
 pytest test_project.py
 ```
